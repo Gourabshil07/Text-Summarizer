@@ -4,10 +4,10 @@ from summarizer import summarize_text
 st.set_page_config(page_title="Text Summarizer", layout="centered")
 
 st.title("📄 Text Summarizer")
-st.write("Paste your text or upload a pdf file to generate a concise summary",height=30)
+st.write("Paste your text or upload a pdf file to generate a concise summary")
 
 # Text input
-text_area = st.text_area("✏️ Paste your text here:", height=250,background_color="#D78B09")
+text_area = st.text_area("✏️ Paste your text here:", height=250)
 
 
 # Button
