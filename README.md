@@ -19,8 +19,7 @@ A simple NLP-powered Text Summarizer where you paste text and instantly generate
 - **HuggingFace Transformers**
 - **NLP Pipeline**
 
----
 
 
-git clone https://github.com/your-username/text-summarizer.git
-cd text-summarizer
+
+
