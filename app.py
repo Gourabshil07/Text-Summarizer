@@ -1,21 +1,43 @@
 import streamlit as st
 from summarizer import summarize_text
 
-st.set_page_config(page_title="Text Summarizer", layout="centered")
+# ---------------- PAGE CONFIG ----------------
+st.set_page_config(
+    page_title="Text Summarizer",
+    layout="centered"
+)
 
+# ---------------- TITLE ----------------
 st.title("📄 Text Summarizer")
-st.write("Paste your text or upload a pdf file to generate a concise summary")
+st.write(
+    "Paste your English text below to generate a concise summary using NLP."
+)
 
-# Text input
-text_area = st.text_area("✏️ Paste your text here:", height=250)
+# ---------------- OPTIONAL STYLE (SAFE) ----------------
+st.markdown(
+    """
+    <style>
+    textarea {
+        background-color: #F5F7FA !important;
+        color: #000000 !important;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 
+# ---------------- TEXT INPUT ----------------
+text_area = st.text_area(
+    "✏️ Paste your text here:",
+    height=250
+)
 
-# Button
+# ---------------- ACTION BUTTON ----------------
 if st.button("🔍 Analyze"):
     if not text_area.strip():
-        st.warning("Please paste or upload text first!")
+        st.warning("Please paste text first!")
     else:
-        with st.spinner("Summarizing..."):
+        with st.spinner("Summarizing using NLP..."):
             summary = summarize_text(text_area)
 
         st.subheader("🧠 Summary:")
@@ -24,5 +46,6 @@ if st.button("🔍 Analyze"):
         st.download_button(
             label="⬇️ Download Summary",
             data=summary,
-            file_name="summary.txt"
+            file_name="summary.txt",
+            mime="text/plain"
         )
